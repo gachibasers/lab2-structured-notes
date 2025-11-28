@@ -1,5 +1,5 @@
 // src/ui-schema.js
-// UI logic for the "Schemas" screen: create, edit and select schemas.
+// UI logic for the "Schemas" screen: create, edit and delete schemas.
 
 import { FIELD_TYPES, FieldDefinition, createSchema } from "./model.js";
 import { loadData, saveData } from "./storage.js";
@@ -14,6 +14,7 @@ let schemaNameInput;
 let fieldsContainerEl;
 let addFieldBtn;
 let resetSchemaBtn;
+let deleteSchemaBtn;
 
 export function initSchemaUI() {
     // Load initial data from storage
@@ -26,10 +27,12 @@ export function initSchemaUI() {
     fieldsContainerEl = document.getElementById("fields-container");
     addFieldBtn = document.getElementById("add-field-btn");
     resetSchemaBtn = document.getElementById("reset-schema-btn");
+    deleteSchemaBtn = document.getElementById("delete-schema-btn");
 
     // Attach handlers
     addFieldBtn.addEventListener("click", () => addFieldRow());
     resetSchemaBtn.addEventListener("click", () => resetForm());
+    deleteSchemaBtn.addEventListener("click", () => onDeleteSchema());
     schemaFormEl.addEventListener("submit", onSchemaFormSubmit);
 
     renderSchemaList();
@@ -182,6 +185,34 @@ function collectFieldsFromForm() {
     }
 
     return result;
+}
+
+function onDeleteSchema() {
+    if (!selectedSchemaId) {
+        alert("No schema is selected.");
+        return;
+    }
+
+    const schema = appData.schemas.find((s) => s.id === selectedSchemaId);
+    if (!schema) {
+        alert("Selected schema not found.");
+        return;
+    }
+
+    const ok = confirm(
+        "Delete this schema and all notes that belong to it?"
+    );
+    if (!ok) return;
+
+    // Remove schema
+    appData.schemas = appData.schemas.filter((s) => s.id !== selectedSchemaId);
+    // Cascade delete notes for this schema
+    appData.notes = appData.notes.filter((n) => n.schemaId !== selectedSchemaId);
+
+    selectedSchemaId = null;
+    saveData(appData);
+    resetForm();
+    notifySchemasChanged();
 }
 
 function notifySchemasChanged() {
