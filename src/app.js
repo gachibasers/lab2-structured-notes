@@ -1,4 +1,7 @@
 // src/app.js
+// Entry point: screen switching and UI modules initialization.
+
+import { initSchemaUI } from "./ui-schema.js";
 
 const screens = {
     schema: document.getElementById("schema-screen"),
@@ -13,15 +16,20 @@ const navButtons = {
 };
 
 function showScreen(name) {
-    Object.values(screens).forEach(s => s.classList.remove("active"));
+    Object.values(screens).forEach((s) => s.classList.remove("active"));
     screens[name].classList.add("active");
 
-    Object.values(navButtons).forEach(b => b.classList.remove("active-nav"));
+    Object.values(navButtons).forEach((b) => b.classList.remove("active-nav"));
     navButtons[name].classList.add("active-nav");
 }
 
-showScreen("schema");
-
+// Navigation event handlers
 navButtons.schema.addEventListener("click", () => showScreen("schema"));
 navButtons.notes.addEventListener("click", () => showScreen("notes"));
 navButtons.settings.addEventListener("click", () => showScreen("settings"));
+
+// Initialize UI when DOM is ready
+document.addEventListener("DOMContentLoaded", () => {
+    initSchemaUI();
+    showScreen("schema");
+});
