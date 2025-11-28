@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Structured Notes Editor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<header class="app-header">
+    <h1>Structured Notes Editor</h1>
+</header>
+
+<nav class="app-nav">
+    <button id="nav-schema" data-screen="schema-screen">Schemas</button>
+    <button id="nav-notes" data-screen="notes-screen">Notes</button>
+    <button id="nav-settings" data-screen="settings-screen">Settings</button>
+</nav>
+
+<main class="app-main">
+    <section id="schema-screen" class="screen active">
+        <h2>Schemas</h2>
+        <p>Schema editor will be implemented here.</p>
+    </section>
+
+    <section id="notes-screen" class="screen">
+        <h2>Notes</h2>
+        <p>Notes editor will be implemented here.</p>
+    </section>
+
+    <section id="settings-screen" class="screen">
+        <h2>Settings</h2>
+        <p>Export / Import will be implemented here.</p>
+    </section>
+</main>
+
+<footer class="app-footer">
+    <small>Lab 2 – GUI • Structured Notes Editor</small>
+</footer>
+
+<script type="module" src="./src/app.js"></script>
+</body>
+</html>
