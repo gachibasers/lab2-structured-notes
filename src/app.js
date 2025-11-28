@@ -2,6 +2,7 @@
 // Entry point: screen switching and UI modules initialization.
 
 import { initSchemaUI } from "./ui-schema.js";
+import { initNotesUI } from "./ui-notes.js";
 
 const screens = {
     schema: document.getElementById("schema-screen"),
@@ -31,5 +32,6 @@ navButtons.settings.addEventListener("click", () => showScreen("settings"));
 // Initialize UI when DOM is ready
 document.addEventListener("DOMContentLoaded", () => {
     initSchemaUI();
+    initNotesUI();
     showScreen("schema");
 });
