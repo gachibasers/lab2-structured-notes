@@ -18,19 +18,51 @@
 </nav>
 
 <main class="app-main">
+    <!-- Screen: Schemas -->
     <section id="schema-screen" class="screen active">
         <h2>Schemas</h2>
-        <p>Schema editor will be implemented here.</p>
+
+        <div class="schema-layout">
+            <div class="schema-list">
+                <h3>Existing schemas</h3>
+                <ul id="schema-list">
+                    <!-- JS: schema items -->
+                </ul>
+            </div>
+
+            <div class="schema-form">
+                <h3>Schema editor</h3>
+                <form id="schema-form">
+                    <label>
+                        Schema name:
+                        <input type="text" id="schema-name" required>
+                    </label>
+
+                    <div id="fields-container">
+                        <!-- JS: dynamic field rows -->
+                    </div>
+
+                    <button type="button" id="add-field-btn">Add field</button>
+
+                    <div class="form-actions">
+                        <button type="submit">Save schema</button>
+                        <button type="button" id="reset-schema-btn">Reset form</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </section>
 
+    <!-- Screen: Notes (placeholder for now) -->
     <section id="notes-screen" class="screen">
         <h2>Notes</h2>
-        <p>Notes editor will be implemented here.</p>
+        <p>Notes editor will be implemented later.</p>
     </section>
 
+    <!-- Screen: Settings (placeholder for now) -->
     <section id="settings-screen" class="screen">
         <h2>Settings</h2>
-        <p>Export / Import will be implemented here.</p>
+        <p>Export / import and data management will be implemented later.</p>
     </section>
 </main>
 
