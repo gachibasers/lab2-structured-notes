@@ -1,0 +1,48 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, sans-serif;
+    background: #f4f5fb;
+}
+
+.app-header {
+    padding: 1rem;
+    background-color: #273044;
+    color: white;
+}
+
+.app-nav {
+    padding: 0.5rem;
+    background: #e3e6f0;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.app-nav button {
+    padding: 0.4rem 0.7rem;
+    background: white;
+    border: 1px solid #bfc5d8;
+    border-radius: 4px;
+}
+
+.app-main {
+    padding: 1rem;
+}
+
+.screen {
+    display: none;
+}
+
+.screen.active {
+    display: block;
+}
+
+.app-footer {
+    padding: 0.5rem;
+    background: #e3e6f0;
+    border-top: 1px solid #bcc2d2;
+    text-align: right;
+}
