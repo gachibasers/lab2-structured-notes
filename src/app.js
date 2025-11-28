@@ -13,12 +13,14 @@ const screens = {
     schema: document.getElementById("schema-screen"),
     notes: document.getElementById("notes-screen"),
     settings: document.getElementById("settings-screen"),
+    help: document.getElementById("help-screen"),
 };
 
 const navButtons = {
     schema: document.getElementById("nav-schema"),
     notes: document.getElementById("nav-notes"),
     settings: document.getElementById("nav-settings"),
+    help: document.getElementById("nav-help"),
 };
 
 function showScreen(name) {
@@ -33,6 +35,7 @@ function showScreen(name) {
 navButtons.schema.addEventListener("click", () => showScreen("schema"));
 navButtons.notes.addEventListener("click", () => showScreen("notes"));
 navButtons.settings.addEventListener("click", () => showScreen("settings"));
+navButtons.help.addEventListener("click", () => showScreen("help"));
 
 function initSettingsUI() {
     const exportBtn = document.getElementById("export-data-btn");
@@ -62,6 +65,7 @@ function initSettingsUI() {
             const text = await file.text();
             importDataFromJson(text);
             alert("Data imported successfully. Please reload the page.");
+            window.dispatchEvent(new CustomEvent("schemas-changed"));
         } catch (e) {
             console.error(e);
             alert("Failed to import data. Invalid JSON file.");
@@ -74,6 +78,7 @@ function initSettingsUI() {
         if (confirm("Are you sure you want to delete all data?")) {
             clearAllData();
             alert("All data has been cleared. Please reload the page.");
+            window.dispatchEvent(new CustomEvent("schemas-changed"));
         }
     });
 }
