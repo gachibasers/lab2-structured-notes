@@ -15,6 +15,7 @@
     <button id="nav-schema" data-screen="schema-screen">Schemas</button>
     <button id="nav-notes" data-screen="notes-screen">Notes</button>
     <button id="nav-settings" data-screen="settings-screen">Settings</button>
+    <button id="nav-help" data-screen="help-screen">Help</button>
 </nav>
 
 <main class="app-main">
@@ -47,6 +48,7 @@
                     <div class="form-actions">
                         <button type="submit">Save schema</button>
                         <button type="button" id="reset-schema-btn">Reset form</button>
+                        <button type="button" id="delete-schema-btn">Delete schema</button>
                     </div>
                 </form>
             </div>
@@ -113,6 +115,27 @@
         <div class="settings-section">
             <h3>Danger zone</h3>
             <button id="clear-data-btn">Clear all data</button>
+        </div>
+    </section>
+
+    <!-- Screen: Help -->
+    <section id="help-screen" class="screen">
+        <h2>Help</h2>
+
+        <div class="settings-section">
+            <h3>How to use the application</h3>
+            <p>
+                <strong>Schemas:</strong> create or edit note schemas on the Schemas screen.
+                Each schema defines a set of fields (text, number, date, boolean).
+            </p>
+            <p>
+                <strong>Notes:</strong> select a schema on the Notes screen, then create and edit
+                notes that follow the selected schema. Use the search box to filter notes.
+            </p>
+            <p>
+                <strong>Settings:</strong> use Export / Import to backup or restore data as JSON.
+                The "Clear all data" button removes all schemas and notes from localStorage.
+            </p>
         </div>
     </section>
 </main>
