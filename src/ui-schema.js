@@ -158,6 +158,7 @@ function onSchemaFormSubmit(event) {
 
     saveData(appData);
     renderSchemaList();
+    notifySchemasChanged();
 }
 
 function collectFieldsFromForm() {
@@ -181,4 +182,8 @@ function collectFieldsFromForm() {
     }
 
     return result;
+}
+
+function notifySchemasChanged() {
+    window.dispatchEvent(new CustomEvent("schemas-changed"));
 }
