@@ -73,20 +73,25 @@ body {
 }
 
 .schema-list,
-.schema-form {
+.schema-form,
+.notes-list,
+.note-editor,
+.settings-section {
     background: #ffffff;
     border-radius: 6px;
     padding: 0.75rem 1rem;
     box-shadow: 0 1px 3px rgba(15, 23, 42, 0.12);
 }
 
-.schema-list ul {
+.schema-list ul,
+#notes-list {
     list-style: none;
     padding-left: 0;
     margin: 0.5rem 0 0;
 }
 
-.schema-list li {
+.schema-list li,
+#notes-list li {
     padding: 0.4rem 0.6rem;
     border-radius: 4px;
     border: 1px solid #dde1f0;
@@ -97,16 +102,19 @@ body {
     align-items: center;
 }
 
-.schema-list li.selected {
+.schema-list li.selected,
+#notes-list li.selected {
     background-color: #e0e6ff;
     border-color: #4b6fff;
 }
 
-.schema-list .schema-name {
+.schema-list .schema-name,
+#notes-list .note-title {
     font-size: 0.95rem;
 }
 
-.schema-list .schema-meta {
+.schema-list .schema-meta,
+#notes-list .note-meta {
     font-size: 0.75rem;
     color: #555;
 }
@@ -157,4 +165,38 @@ button {
 
 .field-row button {
     padding: 0.3rem 0.5rem;
+}
+
+/* ----- Notes screen ----- */
+
+.notes-header {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.notes-header label {
+    margin-bottom: 0;
+}
+
+.notes-layout {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: 1.2fr 2fr;
+    gap: 1rem;
+}
+
+/* ----- Settings screen ----- */
+
+.settings-section {
+    margin-top: 1rem;
+}
+
+.file-input-label {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-top: 0.5rem;
 }
