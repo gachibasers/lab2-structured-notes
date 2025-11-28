@@ -53,16 +53,67 @@
         </div>
     </section>
 
-    <!-- Screen: Notes (placeholder for now) -->
+    <!-- Screen: Notes -->
     <section id="notes-screen" class="screen">
         <h2>Notes</h2>
-        <p>Notes editor will be implemented later.</p>
+
+        <div class="notes-header">
+            <label>
+                Schema:
+                <select id="notes-schema-select">
+                    <!-- JS: schema options -->
+                </select>
+            </label>
+
+            <label>
+                Search:
+                <input type="text" id="notes-search" placeholder="Search in notes...">
+            </label>
+
+            <button id="new-note-btn">New note</button>
+        </div>
+
+        <div class="notes-layout">
+            <div class="notes-list">
+                <h3>Notes list</h3>
+                <ul id="notes-list">
+                    <!-- JS: notes -->
+                </ul>
+            </div>
+
+            <div class="note-editor">
+                <h3>Note editor</h3>
+                <form id="note-form">
+                    <!-- JS: dynamic note fields based on schema -->
+
+                    <div class="form-actions">
+                        <button type="submit">Save note</button>
+                        <button type="button" id="delete-note-btn">Delete note</button>
+                        <button type="button" id="cancel-note-btn">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </section>
 
-    <!-- Screen: Settings (placeholder for now) -->
+    <!-- Screen: Settings -->
     <section id="settings-screen" class="screen">
-        <h2>Settings</h2>
-        <p>Export / import and data management will be implemented later.</p>
+        <h2>Settings &amp; Data</h2>
+
+        <div class="settings-section">
+            <h3>Export / Import</h3>
+            <button id="export-data-btn">Export data (JSON)</button>
+
+            <label class="file-input-label">
+                Import data (JSON):
+                <input type="file" id="import-data-input" accept="application/json">
+            </label>
+        </div>
+
+        <div class="settings-section">
+            <h3>Danger zone</h3>
+            <button id="clear-data-btn">Clear all data</button>
+        </div>
     </section>
 </main>
 
